@@ -1,0 +1,24 @@
+\section{Task 3}
+
+This is pretty simple.
+
+\begin{minted}[fontsize=\small, linenos, frame=single]{python}
+def calculate_grade(marks):
+	if marks >= 90:
+		return 'A'
+	if marks >= 80:
+                return 'B'
+	if marks >= 60:
+                return 'C'
+	return 'D'
+\end{minted}
+
+I used the following to do the actual grading:
+
+\begin{minted}[fontsize=\small, linenos, frame=single]{python}
+def grade_students(students):
+	return list(map(
+                lambda s: (s[1], s[2], calculate_grade(s[2])),
+                students
+        ))
+\end{minted}

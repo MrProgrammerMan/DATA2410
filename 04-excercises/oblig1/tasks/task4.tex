@@ -1,0 +1,13 @@
+\section{Task 4}
+
+Grades are formatted with a helper before writing to output.
+
+\begin{minted}[fontsize=\small, linenos, frame=single]{python}
+def write_results(file_path, students):
+	students_out = format_student_grades(students)
+	with open(file_path, 'w') as file:
+		file.write(str(students_out))
+
+def format_student_grades(students):
+	return '\n'.join(','.join(map(str, s)) for s in students)
+\end{minted}

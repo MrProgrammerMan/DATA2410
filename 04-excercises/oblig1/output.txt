@@ -1,0 +1,4 @@
+John,78,C
+Alice,88,B
+Bob,67,C
+Emma,91,A

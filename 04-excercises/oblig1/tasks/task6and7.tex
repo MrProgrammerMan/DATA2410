@@ -1,0 +1,14 @@
+\section{Task 6 \& 7}
+
+The below is the main code. I would say it works pretty well and is relatively readable and clean. In particular I enjoy the method chaining step, enabled by pure(ish) functions.
+
+\begin{minted}[fontsize=\small, linenos, frame=single]{python}
+input_file_path = input("Enter the input file path: ")
+output_file_path = input("Enter the output file path: ")
+
+results = grade_students(process_students(read_students(input_file_path)))
+
+print_report(results)
+
+write_results(output_file_path, results)
+\end{minted}

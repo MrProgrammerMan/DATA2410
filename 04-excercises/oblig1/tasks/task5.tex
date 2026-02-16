@@ -1,0 +1,14 @@
+\section{Task 5}
+
+The most annoying thing with this code is the tallying part. It may be more readable create a helper for this.
+
+\begin{minted}[fontsize=\small, linenos, frame=single]{python}
+def print_report(results):
+	print("*** Students grades report ***")
+	print(f"Total Students: {len(results)}")
+	marks = [student[1] for student in results]
+	print(f"Average Marks: {sum(marks)/len(marks)}")
+	for grade in ['A', 'B', 'C', 'D']:
+		count = len(list(filter(lambda s: s[2] == grade, results)))
+		print(f"Number of {grade} Grades: {count}")
+\end{minted}

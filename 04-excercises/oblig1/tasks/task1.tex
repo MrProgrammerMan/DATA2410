@@ -1,0 +1,17 @@
+\section{Task 1}
+
+The implementation attempts to open a file, printing an error if the file cannot be found.
+On success, it returns the file contents as a list of string lines.
+
+\begin{minted}[fontsize=\small, linenos, frame=single]{python}
+def read_students(file_path):
+	try:
+		f = open(file_path).read()
+		if len(f.strip()) == 0:
+			print(f"File {file_path} is empty")
+			return
+		lines = f.split("\n")
+		return lines
+	except FileNotFoundError:
+		print(f"File {file_path} not found")
+\end{minted}
