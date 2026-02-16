@@ -56,9 +56,11 @@ def print_report(results):
 	for grade in ['A', 'B', 'C', 'D']:
 		count = len(list(filter(lambda s: s[2] == grade, results)))
 		print(f"Number of {grade} Grades: {count}")
+input_file_path = input("Enter the input file path: ")
+output_file_path = input("Enter the output file path: ")
 
-results = grade_students(process_students(read_students("input.txt")))
+results = grade_students(process_students(read_students(input_file_path)))
 
 print_report(results)
 
-write_results("output.txt", results)
+write_results(output_file_path, results)
