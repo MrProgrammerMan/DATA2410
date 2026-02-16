@@ -26,5 +26,13 @@ def process_students(lines):
 def list_has_non_whitespace(list):
 	return any(len(s.strip()) > 0 for s in list)
 
+def calculate_grade(marks):
+	if marks >= 90:
+		return 'A'
+	if marks >= 80:
+                return 'B'
+	if marks >= 60:
+                return 'C'
+	return 'D'
 
 print(process_students(read_students("input.txt")))
