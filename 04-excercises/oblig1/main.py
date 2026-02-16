@@ -48,7 +48,17 @@ def grade_students(students):
                 students
         ))
 
-write_results(
-	"output.txt",
-	grade_students(process_students(read_students("input.txt")))
-)
+def print_report(results):
+	print("*** Students grades report ***")
+	print(f"Total Students: {len(results)}")
+	marks = [student[1] for student in results]
+	print(f"Average Marks: {sum(marks)/len(marks)}")
+	for grade in ['A', 'B', 'C', 'D']:
+		count = len(list(filter(lambda s: s[2] == grade, results)))
+		print(f"Number of {grade} Grades: {count}")
+
+results = grade_students(process_students(read_students("input.txt")))
+
+print_report(results)
+
+write_results("output.txt", results)
