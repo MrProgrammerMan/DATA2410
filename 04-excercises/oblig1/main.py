@@ -20,8 +20,7 @@ def process_students(lines):
 	if lines_invalid:
 		print(f"Rejected the following invalid line(s): {lines_invalid}")
 
-	lines_tuples = list(map(lambda l: (l[0], l[1], int(l[2])), lines_valid))
-	return lines_tuples
+	return list(map(lambda l: (l[0], l[1], int(l[2])), lines_valid))
 
 def list_has_non_whitespace(list):
 	return any(len(s.strip()) > 0 for s in list)
@@ -43,4 +42,13 @@ def write_results(file_path, students):
 def format_student_grades(students):
 	return '\n'.join(','.join(map(str, s)) for s in students)
 
-write_results("output.txt", process_students(read_students("input.txt")))
+def grade_students(students):
+	return list(map(
+                lambda s: (s[1], s[2], calculate_grade(s[2])),
+                students
+        ))
+
+write_results(
+	"output.txt",
+	grade_students(process_students(read_students("input.txt")))
+)
