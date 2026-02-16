@@ -35,4 +35,12 @@ def calculate_grade(marks):
                 return 'C'
 	return 'D'
 
-print(process_students(read_students("input.txt")))
+def write_results(file_path, students):
+	students_out = format_student_grades(students)
+	with open(file_path, 'w') as file:
+		file.write(str(students_out))
+
+def format_student_grades(students):
+	return '\n'.join(','.join(map(str, s)) for s in students)
+
+write_results("output.txt", process_students(read_students("input.txt")))
