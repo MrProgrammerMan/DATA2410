@@ -24,7 +24,7 @@ try:
 
             print(f"Response: {message}, RTT: {rtt*1000:.3f}ms")
         except timeout:
-           # This exception occurs when NO packet has arrived within the timeout period
+            print("Request timed out")
             continue
 except KeyboardInterrupt:
     print("\nClient shutting down...")
