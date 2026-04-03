@@ -2,6 +2,7 @@ import random
 import sys
 from socket import *
 from datetime import datetime
+import time
 
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 
@@ -12,11 +13,16 @@ try:
         try:
             message = f"Ping {i} {datetime.now()}"
 
-            clientSocket.sendto(message.encode("utf-8"), ("127.0.0.1", 12000))
+            before = time.time()
 
+            clientSocket.sendto(message.encode("utf-8"), ("127.0.0.1", 12000))
             message, _ = clientSocket.recvfrom(1024)
 
-            print(f"Response {message}")
+            after = time.time()
+
+            rtt = after-before
+
+            print(f"Response: {message}, RTT: {rtt*1000:.3f}ms")
         except timeout:
            # This exception occurs when NO packet has arrived within the timeout period
             continue
